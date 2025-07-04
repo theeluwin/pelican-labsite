@@ -1,0 +1,20 @@
+{% macro publication_list_macro(publications) %}
+  <ul class="publication-list">
+    {% for publication in publications %}
+      <li>
+        <div>
+          <a href="/publication/{{ publication.slug }}.html">[{{ publication.venue_short }} {{ publication.year }}] {{ publication.title }}</a>
+        </div>
+        <div>{{ publication.authors | linkify_members }}</div>
+        <div>
+          {% if publication.link %}
+            <a href="{{ publication.link }}" target="new">Link</a>
+          {% endif %}
+          {% if publication.code %}
+            <a href="{{ publication.code }}" target="new">Code</a>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

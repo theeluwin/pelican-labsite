@@ -1,0 +1,12 @@
+{% macro member_list_macro(members) %}
+  <ul class="member-list">
+    {% for member in members %}
+      <li>
+        <a href="/member/{{ member.slug }}.html">
+          <img src="/images/members/{{ member.image | default('default.jpg') }}" alt="{{ member.title }}" />
+          <span>{{ member.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

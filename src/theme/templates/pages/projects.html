@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title_extra %} - Projects{% endblock %}
+{% block content %}
+  <main id="page-projects">
+    <div class="container">
+      <h1>Projects</h1>
+      {% for project in all_projects %}
+        <section>
+        <h2>
+          <a href="/project/{{ project.slug }}.html">{{ project.title }}</a>
+        </h2>
+        <section>
+          <figure>
+            <img src="/images/projects/{{ project.image | default('default.jpg') }}" alt="{{ project.title }}" />
+          </figure>
+        </section>
+        <section>
+          <p>{{ project.summary }}</p>
+          </section>
+        </section>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock %}

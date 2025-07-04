@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% from "macros/publication-sections.html" import publication_sections_macro %}
+{% block title_extra %} - Publications{% endblock %}
+{% block content %}
+  <main id="page-publications">
+    <div class="container">
+      <h1>Publications</h1>
+      {{ publication_sections_macro(verbose_publication_data) }}
+    </div>
+  </main>
+{% endblock %}

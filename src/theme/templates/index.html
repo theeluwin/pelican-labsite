@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "macros/headline-list.html" import headline_list_macro %}
+{% from "macros/publication-list.html" import publication_list_macro %}
+{% block content %}
+  <main id="index">
+    <div class="container">
+      <section>
+        <h1>{{ SITENAME }}</h1>
+        <p>Introduction of the lab.</p>
+      </section>
+      <section>
+        <h2>Recent Contents</h2>
+        <section>
+          <h3>Recent Headlines</h3>
+          <section>{{ headline_list_macro(all_headlines[:RECENT_DATA_LIMIT]) }}</section>
+        </section>
+        <section>
+          <h3>Recent Publications</h3>
+          <section>{{ publication_list_macro(all_publications[:RECENT_DATA_LIMIT]) }}</section>
+        </section>
+      </section>
+    </div>
+  </main>
+{% endblock %}

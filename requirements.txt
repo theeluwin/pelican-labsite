@@ -1,0 +1,2 @@
+pelican[markdown]==4.11.0
+pelican-sitemap==1.2.1

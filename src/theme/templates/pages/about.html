@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title_extra %} - About{% endblock %}
+{% block content %}
+  <main id="page-about">
+    <div class="container">
+      <h1>About {{ SITENAME }}</h1>
+      <div>{{ page.content }}</div>
+    </div>
+  </main>
+{% endblock %}

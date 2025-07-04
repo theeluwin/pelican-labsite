@@ -1,0 +1,11 @@
+{% macro lecture_list_macro(lectures) %}
+  <ul class="lecture-list">
+    {% for lecture in lectures %}
+      <li>
+        <a href="/lecture/{{ lecture.slug }}.html">
+          <span>{{ lecture.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

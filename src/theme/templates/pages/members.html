@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from "macros/member-sections.html" import member_sections_macro %}
+{% block title_extra %} - Members{% endblock %}
+{% block content %}
+  <main id="page-members">
+    <div class="container">
+      <h1>Members</h1>
+      <section>
+        <h2>Current Members</h2>
+        {{ member_sections_macro(verbose_current_member_data) }}
+      </section>
+      <section>
+      <h2>Alumni</h2>
+        {{ member_sections_macro(verbose_alumni_member_data) }}
+      </section>
+    </div>
+  </main>
+{% endblock %}

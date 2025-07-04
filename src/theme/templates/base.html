@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{{ SITENAME }}{% endblock %}{% block title_extra %}{% endblock %}</title>
+    {% block meta %}
+      {% include "components/meta.html" %}
+    {% endblock %}
+    {% block css %}
+      {% include "components/css.html" %}
+    {% endblock %}
+    {% block head_extra %}{% endblock %}
+  </head>
+  <body>
+    {% block header %}
+      {% include "components/header.html" %}
+    {% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}
+      {% include "components/footer.html" %}
+    {% endblock %}
+    {% block js %}
+      {% include "components/js.html" %}
+    {% endblock %}
+    {% block js_extra %}{% endblock %}
+  </body>
+</html>
