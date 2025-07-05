@@ -12,11 +12,8 @@
         <section>
           <figure>
             <img src="/images/projects/{{ project.image | default('default.jpg') }}" alt="{{ project.title }}" />
+            <figcaption>{{ project.summary }}</figcaption>
           </figure>
-        </section>
-        <section>
-          <p>{{ project.summary }}</p>
-          </section>
         </section>
       {% endfor %}
     </div>

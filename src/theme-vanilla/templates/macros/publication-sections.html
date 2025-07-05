@@ -1,0 +1,19 @@
+{% from "macros/publication-list.html" import publication_list_macro %}
+{% macro publication_sections_macro(verbose_publication_data) %}
+  {% for year, year_data in verbose_publication_data.items() %}
+    <section>
+      <h2>{{ year }}</h2>
+      <section>
+        {% for venue_scope, venue_data in year_data.items() %}
+          <h3>{{ venue_scope }}</h3>
+          <section>
+            {% for venue_type, publications in venue_data.items() %}
+              <h4>{{ venue_type }}</h4>
+              <section>{{ publication_list_macro(publications) }}</section>
+            {% endfor %}
+          </section>
+        {% endfor %}
+      </section>
+    </section>
+  {% endfor %}
+{% endmacro %}

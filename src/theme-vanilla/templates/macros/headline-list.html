@@ -1,0 +1,11 @@
+{% macro headline_list_macro(headlines) %}
+  <ul class="headline-list">
+    {% for headline in headlines %}
+      <li>
+        <div>
+          <a href="/headline/{{ headline.slug }}.html">[{{ headline.date | strftime("%Y-%m-%d") }}] {{ headline.title }}</a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

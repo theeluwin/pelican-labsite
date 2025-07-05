@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "macros/publication-list.html" import publication_list_macro %}
+{% from "macros/lecture-list.html" import lecture_list_macro %}
+{% block title_extra %} - {{ article.title }}, {{ article.position }}{% endblock %}
+{% block content %}
+  <article id="article-member">
+    <h1>{{ article.title }}</h1>
+    <section>
+      <figure>
+        <img src="/images/members/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+      </figure>
+    </section>
+    <section>
+      <dl>
+        <dt>Position</dt>
+        <dd>{{ article.position }}{% if article.membership == 'alumni' %} (Alumni){% endif %}</dd>
+        <dt>Email</dt>
+        <dd>{{ article.email }}</dd>
+      </dl>
+    </section>
+    {% if article.content %}
+      <section>
+        <div>{{ article.content }}</div>
+      </section>
+    {% endif %}
+    {% if article.position != 'Professor' %}
+      {% with publications = get_publications_by_member_title(article.title) %}
+        {% if publications %}
+          <section>
+            <h2>Publications</h2>
+            <div>{{ publication_list_macro(publications) }}</div>
+          </section>
+        {% endif %}
+      {% endwith %}
+      {% with lectures = get_lectures_by_member_title(article.title) %}
+        {% if lectures %}
+          <section>
+            <h2>Teaching Assistants</h2>
+            <div>{{ lecture_list_macro(lectures) }}</div>
+          </section>
+        {% endif %}
+      {% endwith %}
+    {% endif %}
+  </article>
+{% endblock %}

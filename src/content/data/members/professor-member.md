@@ -11,7 +11,7 @@ joined_date: 2025-09-01
 graduated_date:
 email: professor.member [at] yourlab.com
 
-##### Educations & Careers
+#### Educations & Careers
 
 * **PostDoc University**
     * Postdoctoral Researcher (2024.09 - 2025.08)
@@ -20,6 +20,6 @@ email: professor.member [at] yourlab.com
 * **BS University**
     * B.S. in CSE (2010.03 - 2017.02)
 
-##### External Links
+#### External Links
 
 * [GitHub](https://github.com/professor-member){:target="new"}

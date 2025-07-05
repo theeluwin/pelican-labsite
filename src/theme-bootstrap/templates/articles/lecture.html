@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title_extra %} - [{{ article.year }} {{ article.semester }}] {{ article.title }}{% endblock %}
+{% block content %}
+  <article id="article-lecture">
+    <div class="container">
+      <h1>[{{ article.year }} {{ article.semester }}] {{ article.title }}</h1>
+      {% if article.content %}
+        <section>
+          <div>{{ article.content }}</div>
+        </section>
+      {% endif %}
+      {% if article.assitants %}
+        <section>
+          <h2>Assitants</h2>
+          <div>{{ article.assitants | linkify_members }}</div>
+        </section>
+      {% endif %}
+    </div>
+  </article>
+{% endblock %}

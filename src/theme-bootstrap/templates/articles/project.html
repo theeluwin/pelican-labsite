@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "macros/publication-list.html" import publication_list_macro %}
+{% block title_extra %} - {{ article.title }}{% endblock %}
+{% block content %}
+  <article id="article-project">
+    <div class="container">
+      <h1>{{ article.title }}</h1>
+      <section>
+        <figure>
+          <img src="/images/projects/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+          <figcaption>{{ article.summary }}</figcaption>
+        </figure>
+      </section>
+      <section>
+        <div>{{ article.content }}</div>
+      </section>
+      {% with publications = get_publications_by_project_slug(article.slug) %}
+        {% if publications %}
+          <section>
+            <h2>Related Publications</h2>
+            <div>{{ publication_list_macro(publications) }}</div>
+          </section>
+        {% endif %}
+      {% endwith %}
+    </div>
+  </article>
+{% endblock %}

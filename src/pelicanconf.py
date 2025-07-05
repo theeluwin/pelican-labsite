@@ -1,6 +1,7 @@
 # site
 AUTHOR = 'Your Name'
 SITENAME = "Your Lab"
+THEME = 'theme-bootstrap/'
 RECENT_DATA_LIMIT = 5
 
 # i18n
@@ -26,9 +27,8 @@ SITEMAP = {
 SITEURL = ''
 RELATIVE_URLS = True
 
-# paths
+# contents
 PATH = 'content/'
-THEME = 'theme/'
 
 # pages
 PAGE_PATHS = ['pages/']

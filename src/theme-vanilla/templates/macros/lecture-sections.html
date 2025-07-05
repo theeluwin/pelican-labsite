@@ -1,0 +1,14 @@
+{% from "macros/lecture-list.html" import lecture_list_macro %}
+{% macro lecture_sections_macro(verbose_lecture_data) %}
+  {% for year, year_data in verbose_lecture_data.items() %}
+    <section>
+      <h2>{{ year }}</h2>
+      <section>
+        {% for semester, lectures in year_data.items() %}
+          <h3>{{ semester }}</h3>
+          <section>{{ lecture_list_macro(lectures) }}</section>
+        {% endfor %}
+      </section>
+    </section>
+  {% endfor %}
+{% endmacro %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title_extra %} - [{{ article.venue_short }} {{ article.year }}] {{ article.title }}{% endblock %}
+{% block content %}
+  <article id="article-publication">
+    <div class="container">
+      <h1>{{ article.title }}</h1>
+      <section>
+        <figure>
+          <img src="/images/publications/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+          <figcaption>{{ article.title }}</figcaption>
+        </figure>
+      </section>
+      <section>
+        <dl>
+          <dt>Date</dt>
+          <dd>{{ article.date | strftime("%Y-%m-%d") }}</dd>
+          <dt>Venue</dt>
+          <dd>{{ article.venue_name }}</dd>
+          <dt>Authors</dt>
+          <dd>{{ article.authors | linkify_members }}</dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Abstract</h2>
+        <div>{{ article.content }}</div>
+      </section>
+    </div>
+  </article>
+{% endblock %}

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block title_extra %} - [{{ article.date | strftime("%Y-%m-%d") }}] {{ article.title }}{% endblock %}
 {% block content %}
-  <article id="article-headline" class="container">
-    <h1>[{{ article.date | strftime("%Y-%m-%d") }}] {{ article.title }}</h1>
-    {% if article.content %}
+  <article id="article-headline">
+    <div class="container">
+      <h1>[{{ article.date | strftime("%Y-%m-%d") }}] {{ article.title }}</h1>
       <div>{{ article.content }}</div>
-    {% endif %}
+    </div>
   </article>
 {% endblock %}

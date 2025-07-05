@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% from "macros/lecture-sections.html" import lecture_sections_macro %}
+{% block title_extra %} - Lectures{% endblock %}
+{% block content %}
+  <main id="page-lectures">
+    <h1>Lectures</h1>
+    {{ lecture_sections_macro(verbose_lecture_data) }}
+  </main>
+{% endblock %}
