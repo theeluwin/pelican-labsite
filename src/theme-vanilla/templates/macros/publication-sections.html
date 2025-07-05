@@ -1,4 +1,4 @@
-{% from "macros/publication-list.html" import publication_list_macro %}
+{% from "macros/publication-list.html" import publication_list_macro with context %}
 {% macro publication_sections_macro(verbose_publication_data) %}
   {% for year, year_data in verbose_publication_data.items() %}
     <section>

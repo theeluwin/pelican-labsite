@@ -2,8 +2,8 @@
   <ul class="member-list">
     {% for member in members %}
       <li>
-        <a href="/member/{{ member.slug }}.html">
-          <img src="/images/members/{{ member.image | default('default.jpg') }}" alt="{{ member.title }}" />
+        <a href="{{ SITEURL }}/member/{{ member.slug }}.html">
+          <img src="{{ SITEURL }}/images/members/{{ member.image | default('default.jpg') }}" alt="{{ member.title }}" />
           <span>{{ member.title }}</span>
         </a>
       </li>

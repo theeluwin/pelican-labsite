@@ -1,23 +1,23 @@
 <nav id="header">
-  <a href="/">{{ SITENAME }}</a>
+  <a href="{{ SITEURL }}">{{ SITENAME }}</a>
   <ul>
     <li>
-      <a class="{% if output_file == 'index.html' %}active{% endif %}" href="/">Home</a>
+      <a class="{% if output_file == 'index.html' %}active{% endif %}" href="{{ SITEURL }}">Home</a>
     </li>
     <li>
-      <a class="{% if output_file == 'about.html' %}active{% endif %}" href="/about.html">About</a>
+      <a class="{% if output_file == 'about.html' %}active{% endif %}" href="{{ SITEURL }}/about.html">About</a>
     </li>
     <li>
-      <a class="{% if output_file == 'members.html' %}active{% endif %}" href="/members.html">Members</a>
+      <a class="{% if output_file == 'members.html' %}active{% endif %}" href="{{ SITEURL }}/members.html">Members</a>
     </li>
     <li>
-      <a class="{% if output_file == 'projects.html' %}active{% endif %}" href="/projects.html">Projects</a>
+      <a class="{% if output_file == 'projects.html' %}active{% endif %}" href="{{ SITEURL }}/projects.html">Projects</a>
     </li>
     <li>
-      <a class="{% if output_file == 'publications.html' %}active{% endif %}" href="/publications.html">Publications</a>
+      <a class="{% if output_file == 'publications.html' %}active{% endif %}" href="{{ SITEURL }}/publications.html">Publications</a>
     </li>
     <li>
-      <a class="{% if output_file == 'lectures.html' %}active{% endif %}" href="/lectures.html">Lectures</a>
+      <a class="{% if output_file == 'lectures.html' %}active{% endif %}" href="{{ SITEURL }}/lectures.html">Lectures</a>
     </li>
   </ul>
 </nav>

@@ -1,4 +1,4 @@
-{% from "macros/member-list.html" import member_list_macro %}
+{% from "macros/member-list.html" import member_list_macro with context %}
 {% macro member_sections_macro(verbose_member_data) %}
   {% for position, members in verbose_member_data.items() %}
     <section>

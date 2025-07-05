@@ -31,13 +31,13 @@ But since most of the code runs through the engine (below), hot-reload may not w
 To run the development environment,
 
 ```bash
-docker build -f Dockerfile.dev -t pelican-labsite-dev .
+docker build -f ./Dockerfile.dev -t pelican-labsite-dev .
 docker run \
     -it \
     --rm \
     --init \
     --publish 8000:8000 \
-    --volume "${PWD}/src:/src" \
+    --volume ./src:/src \
     --name pelican-labsite-dev-container \
     pelican-labsite-dev
 ```
@@ -57,7 +57,7 @@ In the production, the site is built in a python environment, and the resulting 
 To run the production environment,
 
 ```bash
-docker build -f Dockerfile.prod -t pelican-labsite .
+docker build -f ./Dockerfile.prod -t pelican-labsite .
 docker stop pelican-labsite-container 2>/dev/null || true
 docker rm pelican-labsite-container 2>/dev/null || true
 docker run \
@@ -77,14 +77,7 @@ or simply,
 
 then, open your browser and go to `http://localhost`.
 
-## Theme
-
-The actual appearance of the site is controlled by the theme.
-
-Currently, two themes are provided:
-
-* `theme-vanilla`: located in `/src/theme-vanilla`, a theme that uses plain HTML only.
-* [TODO] `theme-bootstrap`: located in `/src/theme-bootstrap/`, a sample theme styled with [Bootstrap](https://getbootstrap.com/).
+You can see the nginx logs in `/shared/logfiles/`.
 
 ## Settings
 
@@ -95,9 +88,27 @@ Most settings don't require modification, but the values at the top of the file 
 ```python
 AUTHOR = 'Your Name'
 SITENAME = "Your Lab"
+SITEURL = 'http://yourlab.university.edu'
 THEME = 'theme-bootstrap/'
+TIMEZONE = 'UTC'
+DEFAULT_LANG = 'en'
 RECENT_DATA_LIMIT = 5
 ```
+
+For the custom domain, modify the file `/src/content/extra/CNAME` with content that specifies your domain:
+
+```
+yourlab.university.edu
+```
+
+## Theme
+
+The actual appearance of the site is controlled by the theme.
+
+Currently, two themes are provided:
+
+* `theme-vanilla`: located in `/src/theme-vanilla`, a theme that uses plain HTML only.
+* [TODO] `theme-bootstrap`: located in `/src/theme-bootstrap/`, a sample theme styled with [Bootstrap](https://getbootstrap.com/).
 
 ## Engine
 
@@ -170,10 +181,6 @@ Lecture Content 3.  # start with one linebreak, use markdown syntax from here
 
 ## Publishing to GitHub Pages
 
-For the custom domain, create a file named `/src/content/extra/CNAME` with content that specifies your domain:
+Use custom workflow. In your repo, go to Settings &rightarrow; Pages and choose GitHub Actions for the Source setting.
 
-```
-yourlab.com
-```
-
-The rest is TODO for now.
+See `/.github/workflows/pelican-labsite.yml` for more details.

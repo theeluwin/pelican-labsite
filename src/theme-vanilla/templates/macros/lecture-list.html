@@ -2,7 +2,7 @@
   <ul class="lecture-list">
     {% for lecture in lectures %}
       <li>
-        <a href="/lecture/{{ lecture.slug }}.html">[{{ lecture.year }} {{ lecture.semester }}] {{ lecture.title }}</a>
+        <a href="{{ SITEURL }}/lecture/{{ lecture.slug }}.html">[{{ lecture.year }} {{ lecture.semester }}] {{ lecture.title }}</a>
       </li>
     {% endfor %}
   </ul>

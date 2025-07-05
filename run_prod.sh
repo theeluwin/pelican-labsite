@@ -1,6 +1,4 @@
-#!/bin/bash
-
-docker build -f Dockerfile.prod -t pelican-labsite .
+docker build -f ./Dockerfile.prod -t pelican-labsite .
 docker stop pelican-labsite-container 2>/dev/null || true
 docker rm pelican-labsite-container 2>/dev/null || true
 docker run \

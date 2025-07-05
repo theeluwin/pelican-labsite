@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros/publication-list.html" import publication_list_macro %}
+{% from "macros/publication-list.html" import publication_list_macro with context %}
 {% block title_extra %} - {{ article.title }}{% endblock %}
 {% block content %}
   <article id="article-project">
@@ -7,7 +7,7 @@
       <h1>{{ article.title }}</h1>
       <section>
         <figure>
-          <img src="/images/projects/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+          <img src="{{ SITEURL }}/images/projects/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
           <figcaption>{{ article.summary }}</figcaption>
         </figure>
       </section>

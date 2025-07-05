@@ -3,7 +3,7 @@
     {% for publication in publications %}
       <li>
         <div>
-          <a href="/publication/{{ publication.slug }}.html">[{{ publication.venue_short }} {{ publication.year }}] {{ publication.title }}</a>
+          <a href="{{ SITEURL }}/publication/{{ publication.slug }}.html">[{{ publication.venue_short }} {{ publication.year }}] {{ publication.title }}</a>
         </div>
         <div>{{ publication.authors | linkify_members }}</div>
         <div>

@@ -1,31 +1,14 @@
 # site
 AUTHOR = 'Your Name'
 SITENAME = "Your Lab"
+SITEURL = 'http://yourlab.university.edu'
 THEME = 'theme-bootstrap/'
-RECENT_DATA_LIMIT = 5
-
-# i18n
 TIMEZONE = 'UTC'
 DEFAULT_LANG = 'en'
-
-# sitemap
-SITEMAP = {
-    'format': 'xml',
-    'priorities': {
-        'pages': 0.5,
-        'articles': 0.5,
-        'indexes': 0.5,
-    },
-    'changefreqs': {
-        'pages': 'monthly',
-        'articles': 'monthly',
-        'indexes': 'monthly',
-    }
-}
+RECENT_DATA_LIMIT = 5
 
 # urls
-SITEURL = ''
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 # contents
 PATH = 'content/'
@@ -51,10 +34,12 @@ STATIC_PATHS = [
     'images/',
     'extra/favicon.ico',
     'extra/robots.txt',
+    'extra/CNAME',
 ]
 EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/CNAME': {'path': 'CNAME'},
 }
 
 # plugins
@@ -63,3 +48,18 @@ PLUGINS = [
     'pelican.plugins.sitemap',
     'labsite.engine',
 ]
+
+# sitemap
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'pages': 0.5,
+        'articles': 0.5,
+        'indexes': 0.5,
+    },
+    'changefreqs': {
+        'pages': 'monthly',
+        'articles': 'monthly',
+        'indexes': 'monthly',
+    }
+}

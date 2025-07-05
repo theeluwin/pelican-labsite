@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% from "macros/publication-list.html" import publication_list_macro %}
-{% from "macros/lecture-list.html" import lecture_list_macro %}
+{% from "macros/publication-list.html" import publication_list_macro with context %}
+{% from "macros/lecture-list.html" import lecture_list_macro with context %}
 {% block title_extra %} - {{ article.title }}, {{ article.position }}{% endblock %}
 {% block content %}
   <article id="article-member">
@@ -8,7 +8,7 @@
       <h1>{{ article.title }}</h1>
       <section>
         <figure>
-          <img src="/images/members/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+          <img src="{{ SITEURL }}/images/members/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
         </figure>
       </section>
       <section>

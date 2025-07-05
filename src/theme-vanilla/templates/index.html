@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% from "macros/headline-list.html" import headline_list_macro %}
-{% from "macros/publication-list.html" import publication_list_macro %}
+{% from "macros/headline-list.html" import headline_list_macro with context %}
+{% from "macros/publication-list.html" import publication_list_macro with context %}
 {% block content %}
   <main id="index">
     <section>
@@ -13,14 +13,14 @@
         <h3>Recent Headlines</h3>
         <section>{{ headline_list_macro(all_headlines[:RECENT_DATA_LIMIT]) }}</section>
         <div>
-          <a href="/headlines.html">See all headlines</a>
+          <a href="{{ SITEURL }}/headlines.html">See all headlines</a>
         </div>
       </section>
       <section>
         <h3>Recent Publications</h3>
         <section>{{ publication_list_macro(all_publications[:RECENT_DATA_LIMIT]) }}</section>
         <div>
-          <a href="/publications.html">See all publications</a>
+          <a href="{{ SITEURL }}/publications.html">See all publications</a>
         </div>
       </section>
     </section>

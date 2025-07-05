@@ -1,4 +1,4 @@
-{% from "macros/lecture-list.html" import lecture_list_macro %}
+{% from "macros/lecture-list.html" import lecture_list_macro with context %}
 {% macro lecture_sections_macro(verbose_lecture_data) %}
   {% for year, year_data in verbose_lecture_data.items() %}
     <section>

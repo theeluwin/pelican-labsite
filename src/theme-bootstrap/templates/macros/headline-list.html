@@ -3,7 +3,7 @@
     {% for headline in headlines %}
       <li>
         <div>
-          <a href="/headline/{{ headline.slug }}.html">[{{ headline.date | strftime("%Y-%m-%d") }}] {{ headline.title }}</a>
+          <a href="{{ SITEURL }}/headline/{{ headline.slug }}.html">[{{ headline.date | strftime("%Y-%m-%d") }}] {{ headline.title }}</a>
         </div>
       </li>
     {% endfor %}

@@ -4,6 +4,7 @@ from operator import itemgetter
 from collections import OrderedDict
 
 from pelican import signals
+from jinja2 import pass_context
 
 
 def parse_list(values):
@@ -396,20 +397,6 @@ def get_lectures_by_member_title(title):
     return db.title2member[title]['lectures']
 
 
-def linkify_members(titles):
-    titles = parse_list(titles)
-    db = DB()
-    anchors = []
-    for title in titles:
-        if title in db.title2member:
-            slug = db.title2member[title]['slug']
-            anchor = f"<a href='/member/{slug}.html'>{title}</a>"
-        else:
-            anchor = title
-        anchors.append(anchor)
-    return ', '.join(anchors)
-
-
 def add_context(generator, metadata):
 
     # init
@@ -433,13 +420,22 @@ def add_context(generator, metadata):
     generator.context['get_lectures_by_member_title'] = get_lectures_by_member_title
 
 
+@pass_context
+def linkify_members(context, titles):
+    titles = parse_list(titles)
+    db = DB()
+    anchors = []
+    for title in titles:
+        if title in db.title2member:
+            slug = db.title2member[title]['slug']
+            anchor = f"<a href='{context['SITEURL']}/member/{slug}.html'>{title}</a>"
+        else:
+            anchor = title
+        anchors.append(anchor)
+    return ', '.join(anchors)
+
+
 def add_filters(pelican):
-
-    # prepare
-    if 'JINJA_FILTERS' not in pelican.settings:
-        pelican.settings['JINJA_FILTERS'] = {}
-
-    # filters
     pelican.settings['JINJA_FILTERS']['linkify_members'] = linkify_members
 
 
