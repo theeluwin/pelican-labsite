@@ -1,5 +1,7 @@
 # Pelican Labsite
 
+[![Build and Deploy Site](https://github.com/theeluwin/pelican-labsite/actions/workflows/pelican-labsite.yml/badge.svg)](https://github.com/theeluwin/pelican-labsite/actions/workflows/pelican-labsite.yml)
+
 An academic lab website builder based on [Pelican](https://getpelican.com/).
 
 It manages and updates the site by treating the `*.md` files in `/src/content/data/` (that is, the articles) as a kind of structured data.
