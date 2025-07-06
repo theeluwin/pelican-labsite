@@ -10,6 +10,9 @@
     {% block head_extra %}{% endblock %}
   </head>
   <body>
+    {% if GITHUB_RIBBON %}
+      <a class="github-fork-ribbon left-top fixed" href="https://github.com/theeluwin/pelican-labsite" target="new" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+    {% endif %}
     {% block header %}
       {% include "components/header.html" %}
     {% endblock %}
