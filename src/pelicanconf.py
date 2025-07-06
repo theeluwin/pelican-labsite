@@ -65,4 +65,4 @@ SITEMAP = {
 }
 
 # github
-GITHUB_RIBBON = True
+GITHUB_RIBBON = False
