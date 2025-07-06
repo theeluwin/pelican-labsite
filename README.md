@@ -2,6 +2,8 @@
 
 [![Build and Deploy Site](https://github.com/theeluwin/pelican-labsite/actions/workflows/pelican-labsite.yml/badge.svg)](https://github.com/theeluwin/pelican-labsite/actions/workflows/pelican-labsite.yml)
 
+Demo: [theeluwin.github.io/pelican-labsite/](https://theeluwin.github.io/pelican-labsite/)
+
 An academic lab website builder based on [Pelican](https://getpelican.com/).
 
 It manages and updates the site by treating the `*.md` files in `/src/content/data/` (that is, the articles) as a kind of structured data.
@@ -10,7 +12,7 @@ Key features:
 
 * Home (index)
     * recent headlines
-    * cecent publications
+    * recent publications
 * About
 * Members
     * list of current or alumni members
