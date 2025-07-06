@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: Introduction to Databases
 slug: 2025-fall-introduction-to-databases
+cover: lecture.jpg
 year: 2025
 semester: Fall
 assitants: PhD Candidate1, PhD Candidate2

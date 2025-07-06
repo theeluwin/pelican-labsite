@@ -104,10 +104,7 @@ class DB(Singleton):
             member = parse_metadata(fpath)
 
             # parse date
-            try:
-                member['joined_date'] = datetime.strptime(member['joined_date'], '%Y-%m-%d')
-            except (KeyError, ValueError):
-                member['joined_date'] = None
+            member['joined_date'] = datetime.strptime(member['joined_date'], '%Y-%m-%d')
             try:
                 member['graduated_date'] = datetime.strptime(member['graduated_date'], '%Y-%m-%d')
             except (KeyError, ValueError):
@@ -147,7 +144,7 @@ class DB(Singleton):
             # sort members
             if position in cache_current:
                 rows = cache_current[position]
-                rows = sorted(rows, key=itemgetter('joined_date'), reverse=True)
+                rows = sorted(rows, key=itemgetter('joined_date'))
                 data_current[position] = rows
 
         # organize data per position (alumni)
@@ -161,7 +158,7 @@ class DB(Singleton):
             # sort members
             if position in cache_alumni:
                 rows = cache_alumni[position]
-                rows = sorted(rows, key=itemgetter('graduated_date'), reverse=True)
+                rows = sorted(rows, key=itemgetter('graduated_date'))
                 data_alumni[position] = rows
 
         # memorize
@@ -235,7 +232,7 @@ class DB(Singleton):
                 project['publications'].append(publication)
 
             # cache
-            key = (year, publication['venue_scope'], publication['venue_type'])
+            key = (year, publication['venue_type'])
             if key not in cache:
                 cache[key] = []
             cache[key].append(publication)
@@ -264,35 +261,20 @@ class DB(Singleton):
         years = sorted(list(yearset), reverse=True)
         for year in years:
 
-            # organize data per venue scope
+            # organize data per venue type
             data[year] = OrderedDict()
-            venue_scopes = (
-                'Global',
-                'Domestic',
+            venue_types = (
+                'Preprint',
+                'Conference',
+                'Journal',
             )
-            for venue_scope in venue_scopes:
+            for venue_type in venue_types:
 
-                # organize data per venue type
-                data[year][venue_scope] = OrderedDict()
-                venue_types = (
-                    'Conference',
-                    'Journal',
-                )
-                for venue_type in venue_types:
-
-                    # sort publications
-                    if (year, venue_scope, venue_type) in cache:
-                        rows = cache[(year, venue_scope, venue_type)]
-                        rows = sorted(rows, key=itemgetter('date'), reverse=True)
-                        data[year][venue_scope][venue_type] = rows
-
-                # in case of empty venue scope
-                if not data[year][venue_scope]:
-                    del data[year][venue_scope]
-
-            # in case of empty year
-            if not data[year]:
-                del data[year]
+                # sort publications
+                if (year, venue_type) in cache:
+                    rows = cache[(year, venue_type)]
+                    rows = sorted(rows, key=itemgetter('date'), reverse=True)
+                    data[year][venue_type] = rows
 
         # memorize
         self.publications = publications
@@ -364,10 +346,6 @@ class DB(Singleton):
                     rows = sorted(rows, key=itemgetter('date'), reverse=True)
                     data[year][semester] = rows
 
-            # in case of empty year
-            if not data[year]:
-                del data[year]
-
         # memorize
         self.lectures = lectures
         self.verbose_lecture_data = data
@@ -428,7 +406,9 @@ def linkify_members(context, titles):
     for title in titles:
         if title in db.title2member:
             slug = db.title2member[title]['slug']
-            anchor = f"<a href='{context['SITEURL']}/member/{slug}.html'>{title}</a>"
+            if context['output_file'] == f'member/{slug}.html':
+                title = f"<b>{title}</b>"
+            anchor = f"<a class='link link-success' href='{context['SITEURL']}/member/{slug}.html'>{title}</a>"
         else:
             anchor = title
         anchors.append(anchor)

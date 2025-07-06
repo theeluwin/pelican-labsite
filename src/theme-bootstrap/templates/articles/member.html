@@ -1,47 +1,87 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% from "macros/publication-list.html" import publication_list_macro with context %}
 {% from "macros/lecture-list.html" import lecture_list_macro with context %}
 {% block title_extra %} - {{ article.title }}, {{ article.position }}{% endblock %}
 {% block content %}
-  <article id="article-member">
-    <div class="container">
-      <h1>{{ article.title }}</h1>
-      <section>
-        <figure>
-          <img src="{{ SITEURL }}/images/members/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
-        </figure>
+  {{ jumbotron_macro(article.title, article.cover) }}
+  <main class="container">
+    <div class="row">
+      <section class="col-12 col-sm-4 mb-5 text-center">
+        <img class="member-image img-fluid" src="{{ SITEURL }}/images/member/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
       </section>
-      <section>
+      <section class="col-12 col-sm-8 mb-5">
+        <h4 class="section-title mb-3">
+          Details
+        </h4>
         <dl>
-          <dt>Position</dt>
-          <dd>{{ article.position }}{% if article.membership == 'alumni' %} (Alumni){% endif %}</dd>
-          <dt>Email</dt>
-          <dd>{{ article.email }}</dd>
+          <dt>
+            Position
+          </dt>
+          <dd>
+            {{ article.position }}{% if article.membership == 'alumni' %} (Alumni){% endif %}
+          </dd>
+          {% if article.membership == 'current' %}
+            <dt>
+              Joined on
+            </dt>
+            <dd>
+              {{ article.joined_date }}
+            </dd>
+            {% if article.email %}
+              <dt>
+                Email
+              </dt>
+              <dd>
+                {{ article.email }}
+              </dd>
+            {% endif %}
+          {% elif article.membership == 'alumni' %}
+            <dt>
+              Graduated on
+            </dt>
+            <dd>
+              {{ article.graduated_date }}
+            </dd>
+          {% endif %}
         </dl>
       </section>
-      {% if article.content %}
-        <section>
-          <div>{{ article.content }}</div>
-        </section>
-      {% endif %}
-      {% if article.position != 'Professor' %}
-        {% with publications = get_publications_by_member_title(article.title) %}
-          {% if publications %}
-            <section>
-              <h2>Publications</h2>
-              <div>{{ publication_list_macro(publications) }}</div>
-            </section>
-          {% endif %}
-        {% endwith %}
-        {% with lectures = get_lectures_by_member_title(article.title) %}
-          {% if lectures %}
-            <section>
-              <h2>Teaching Assistants</h2>
-              <div>{{ lecture_list_macro(lectures) }}</div>
-            </section>
-          {% endif %}
-        {% endwith %}
-      {% endif %}
     </div>
-  </article>
+    {% if article.content %}
+      <section class="mb-5">
+        <h4 class="section-title mb-3">
+          Profile
+        </h4>
+        <div>
+          {{ article.content }}
+        </div>
+      </section>
+    {% endif %}
+    {% if article.position != 'Professor' %}
+      {% with publications = get_publications_by_member_title(article.title) %}
+        {% if publications %}
+          <section class="mb-5">
+            <h4 class="section-title mb-3">
+              Publications
+            </h4>
+            <div>
+              {{ publication_list_macro(publications) }}
+            </div>
+          </section>
+        {% endif %}
+      {% endwith %}
+      {% with lectures = get_lectures_by_member_title(article.title) %}
+        {% if lectures %}
+          <section class="mb-5">
+            <h4 class="section-title mb-3">
+              Teaching Assistants
+            </h4>
+            <div>
+              {{ lecture_list_macro(lectures) }}
+            </div>
+          </section>
+        {% endif %}
+      {% endwith %}
+    {% endif %}
+  </main>
 {% endblock %}

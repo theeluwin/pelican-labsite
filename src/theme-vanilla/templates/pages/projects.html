@@ -5,10 +5,9 @@
     <h1>Projects</h1>
     {% for project in all_projects %}
       <section>
-      <h2>
-        <a href="{{ SITEURL }}/project/{{ project.slug }}.html">{{ project.title }}</a>
-      </h2>
-      <section>
+        <h2>
+          <a href="{{ SITEURL }}/project/{{ project.slug }}.html">{{ project.title }}</a>
+        </h2>
         <figure>
           <img src="{{ SITEURL }}/images/projects/{{ project.image | default('default.jpg') }}" alt="{{ project.title }}" />
           <figcaption>{{ project.summary }}</figcaption>

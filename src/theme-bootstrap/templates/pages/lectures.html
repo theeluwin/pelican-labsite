@@ -1,11 +1,10 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% from "macros/lecture-sections.html" import lecture_sections_macro with context %}
 {% block title_extra %} - Lectures{% endblock %}
 {% block content %}
-  <main id="page-lectures">
-    <div class="container">
-      <h1>Lectures</h1>
-      {{ lecture_sections_macro(verbose_lecture_data) }}
-    </div>
+  {{ jumbotron_macro(page.title, page.cover) }}
+  <main class="container">
+    {{ lecture_sections_macro(verbose_lecture_data) }}
   </main>
 {% endblock %}

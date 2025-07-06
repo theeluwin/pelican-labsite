@@ -1,7 +1,8 @@
 # site
 AUTHOR = 'Your Name'
 SITENAME = "Your Lab"
-SITEURL = 'http://yourlab.university.edu'
+# SITEURL = 'http://yourlab.university.edu'
+SITEURL = 'http://localhost'
 THEME = 'theme-bootstrap/'
 TIMEZONE = 'UTC'
 DEFAULT_LANG = 'en'

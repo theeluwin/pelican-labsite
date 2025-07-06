@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title %}{{ SITENAME }}{% endblock %}{% block title_extra %}{% endblock %}</title>
+    <title>
+      {% block title %}{{ SITENAME }}{% endblock %}
+      {% block title_extra %}{% endblock %}
+    </title>
     {% include "components/meta.html" %}
     {% include "components/css.html" %}
     {% block head_extra %}{% endblock %}

@@ -1,22 +1,56 @@
-<nav id="header">
+<nav id="header" class="navbar fixed-top navbar-expand-lg border-bottom bg-light" data-bs-theme="light">
   <div class="container">
-    <a href="{{ SITEURL }}">{{ SITENAME }}</a>
-    <ul>
-      <li>
-        <a class="{% if output_file == 'index.html' %}active{% endif %}" href="{{ SITEURL }}">Home</a>
-      </li>
-      <li>
-        <a class="{% if output_file == 'about.html' %}active{% endif %}" href="{{ SITEURL }}/about.html">About</a>
-      </li>
-      <li>
-        <a class="{% if output_file == 'members.html' %}active{% endif %}" href="{{ SITEURL }}/members.html">Members</a>
-      </li>
-      <li>
-        <a class="{% if output_file == 'projects.html' %}active{% endif %}" href="{{ SITEURL }}/projects.html">Projects</a>
-      </li>
-      <li>
-        <a class="{% if output_file == 'publications.html' %}active{% endif %}" href="{{ SITEURL }}/publications.html">Publications</a>
-      </li>
-    </ul>
+    <a class="navbar-brand text-success" href="{{ SITEURL }}">
+      <b>{{ SITENAME }}</b>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-menu" aria-controls="header-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="header-menu" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          {% if output_file == 'index.html' %}
+            <a class="nav-link active" aria-current="page" href="{{ SITEURL }}">Home</a>
+          {% else %}
+            <a class="nav-link" href="{{ SITEURL }}">Home</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          {% if output_file == 'about.html' %}
+            <a class="nav-link active" aria-current="page" href="{{ SITEURL }}/about.html">About</a>
+          {% else %}
+            <a class="nav-link" href="{{ SITEURL }}/about.html">About</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          {% if output_file == 'members.html' %}
+            <a class="nav-link active" aria-current="page" href="{{ SITEURL }}/members.html">Members</a>
+          {% else %}
+            <a class="nav-link" href="{{ SITEURL }}/members.html">Members</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          {% if output_file == 'projects.html' %}
+            <a class="nav-link active" aria-current="page" href="{{ SITEURL }}/projects.html">Projects</a>
+          {% else %}
+            <a class="nav-link" href="{{ SITEURL }}/projects.html">Projects</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          {% if output_file == 'publications.html' %}
+            <a class="nav-link active" aria-current="page" href="{{ SITEURL }}/publications.html">Publications</a>
+          {% else %}
+            <a class="nav-link" href="{{ SITEURL }}/publications.html">Publications</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          {% if output_file == 'lectures.html' %}
+            <a class="nav-link active" aria-current="page" href="{{ SITEURL }}/lectures.html">Lectures</a>
+          {% else %}
+            <a class="nav-link" href="{{ SITEURL }}/lectures.html">Lectures</a>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

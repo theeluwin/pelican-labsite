@@ -1,20 +1,34 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% block title_extra %} - [{{ article.year }} {{ article.semester }}] {{ article.title }}{% endblock %}
 {% block content %}
-  <article id="article-lecture">
-    <div class="container">
-      <h1>[{{ article.year }} {{ article.semester }}] {{ article.title }}</h1>
-      {% if article.content %}
-        <section>
-          <div>{{ article.content }}</div>
-        </section>
-      {% endif %}
-      {% if article.assitants %}
-        <section>
-          <h2>Assitants</h2>
-          <div>{{ article.assitants | linkify_members }}</div>
-        </section>
-      {% endif %}
-    </div>
-  </article>
+  {{ jumbotron_macro(article.title, article.cover) }}
+  <main class="container">
+    <section class="mb-5">
+      <h4 class="section-title mb-3">
+        Semester
+      </h4>
+      <div>
+        {{ article.year }} {{ article.semester }}
+      </div>
+    </section>
+    {% if article.assitants %}
+      <section class="mb-5">
+        <h4 class="section-title mb-3">
+          Teaching Assistants
+        </h4>
+        <div>
+          {{ article.assitants | linkify_members }}
+        </div>
+      </section>
+    {% endif %}
+    <section class="mb-5">
+      <h4 class="section-title mb-3">
+        Content
+      </h4>
+      <div>
+        {{ article.content }}
+      </div>
+    </section>
+  </main>
 {% endblock %}

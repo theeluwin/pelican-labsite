@@ -1,10 +1,19 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% block title_extra %} - [{{ article.date | strftime("%Y-%m-%d") }}] {{ article.title }}{% endblock %}
 {% block content %}
-  <article id="article-headline">
-    <div class="container">
-      <h1>[{{ article.date | strftime("%Y-%m-%d") }}] {{ article.title }}</h1>
-      <div>{{ article.content }}</div>
-    </div>
-  </article>
+  {{ jumbotron_macro('Headline', article.cover) }}
+  <main class="container">
+    <section class="mb-5">
+      <h4 class="section-title mb-3">
+        {{ article.date | strftime("%Y-%m-%d") }}
+      </h4>
+      <h5>
+        {{ article.title }}
+      </h5>
+      <div>
+        {{ article.content }}
+      </div>
+    </section>
+  </main>
 {% endblock %}

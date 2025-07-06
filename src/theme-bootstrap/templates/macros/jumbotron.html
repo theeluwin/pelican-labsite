@@ -1,0 +1,15 @@
+{% macro jumbotron_macro(title, cover=None, subtitle=None) %}
+  <div class="jumbotron py-5" style="background-image: url('{{ SITEURL }}/images/cover/{{ cover | default('default.jpg') }}');" data-bs-theme="dark">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 class="text-body text-center text-sm-start mb-0">
+        {{ title }}
+      </h1>
+      {% if subtitle %}
+        <p class="text-body-secondary text-center text-sm-start mt-1">
+          {{ subtitle }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
