@@ -296,12 +296,12 @@ class DB(Singleton):
             yearset.add(year)
             lecture['year'] = year
 
-            # parse assitants
-            assitants = parse_list(lecture['assitants'])
-            lecture['assitants'] = assitants
+            # parse assistants
+            assistants = parse_list(lecture['assistants'])
+            lecture['assistants'] = assistants
 
             # memorize member lectures
-            for title in assitants:
+            for title in assistants:
                 if title not in self.title2member:
                     continue
                 member = self.title2member[title]
