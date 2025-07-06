@@ -4,6 +4,7 @@ status: published
 date: 2026-03-01
 title: Introduction to Databases
 slug: 2026-spring-introduction-to-databases
+summary: Summary of databases.
 cover: lecture.jpg
 year: 2026
 semester: Spring

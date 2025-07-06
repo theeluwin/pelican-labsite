@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: Master Alumni1
 slug: master-alumni1
+summary: Summary of Master Alumni1.
 cover: member.jpg
 image: default.jpg
 membership: alumni

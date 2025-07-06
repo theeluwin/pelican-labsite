@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: Paper Title Three
 slug: 2025-adc-paper-title-three
+summary: 1-line summary of the paper three.
 cover: publication.jpg
 image: default.jpg
 year: 2025

@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: Master Student1
 slug: master-student1
+summary: Summary of Master Student1.
 cover: member.jpg
 image: default.jpg
 membership: current

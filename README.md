@@ -95,16 +95,11 @@ Most settings don't require modification, but the values at the top of the file 
 AUTHOR = 'Your Name'
 SITENAME = "Your Lab"
 SITEURL = 'http://yourlab.university.edu'
+SITEDESCRIPTION = "Lab description."
 THEME = 'theme-bootstrap/'
 TIMEZONE = 'UTC'
 DEFAULT_LANG = 'en'
 RECENT_DATA_LIMIT = 5
-```
-
-For the custom domain, modify the file `/src/content/extra/CNAME` with content that specifies your domain:
-
-```
-yourlab.university.edu
 ```
 
 ## Theme
@@ -152,6 +147,7 @@ status: published  # fixed value
 date: 2026-03-01  # will be used appropriately
 title: Introduction to Databases  # will be used appropriately
 slug: 2026-spring-introduction-to-databases  # match the name of the file
+summary: Summary of Databases.
 ```
 
 Then, the custom field follows:
@@ -163,10 +159,11 @@ status: published
 date: 2026-03-01
 title: Introduction to Databases
 slug: 2026-spring-introduction-to-databases
+summary: Summary of Databases.
 cover: lecture.jpg  # custom field
 year: 2026  # custom field
 semester: Spring  # custom field
-assitants: Master Student2, PhD Student2  # custom field
+assistants: Master Student2, PhD Student2  # custom field
 
 Lecture Content 3.  # start with one linebreak, use markdown syntax from here
 ```
@@ -206,3 +203,9 @@ Lecture Content 3.  # start with one linebreak, use markdown syntax from here
 Use custom workflow. In your repo, go to Settings &rightarrow; Pages and choose GitHub Actions for the Source setting.
 
 See `/.github/workflows/pelican-labsite.yml` for more details.
+
+For the custom domains, you must create file `/src/content/extra/CNAME` with content that specifies your domain:
+
+```
+yourlab.university.edu
+```

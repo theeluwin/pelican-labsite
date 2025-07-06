@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: PhD Alumni1
 slug: phd-alumni1
+summary: Summary of PhD Alumni1.
 cover: member.jpg
 image: default.jpg
 membership: alumni

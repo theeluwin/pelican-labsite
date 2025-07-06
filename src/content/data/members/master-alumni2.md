@@ -4,6 +4,7 @@ status: published
 date: 2026-03-01
 title: Master Alumni2
 slug: master-alumni2
+summary: Summary of Master Alumni2.
 cover: member.jpg
 image: default.jpg
 membership: alumni

@@ -4,6 +4,7 @@ status: published
 date: 2027-03-01
 title: Intern Last
 slug: intern-last
+summary: Summary of Intern Last.
 cover: member.jpg
 image: default.jpg
 membership: current

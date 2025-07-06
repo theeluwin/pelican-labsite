@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: PhD Candidate1
 slug: phd-candidate1
+summary: Summary of PhD Candidate1.
 cover: member.jpg
 image: default.jpg
 membership: current

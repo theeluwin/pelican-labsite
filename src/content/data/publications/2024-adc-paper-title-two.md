@@ -4,6 +4,7 @@ status: published
 date: 2024-09-01
 title: Paper Title Two
 slug: 2024-adc-paper-title-two
+summary: 1-line summary of the paper two.
 cover: publication.jpg
 image: default.jpg
 year: 2024

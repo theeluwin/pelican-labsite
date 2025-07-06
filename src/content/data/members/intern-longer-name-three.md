@@ -4,6 +4,7 @@ status: published
 date: 2026-03-01
 title: Intern Longer Name Three
 slug: intern-longer-name-three
+summary: Summary of Intern Longer Name Three.
 cover: member.jpg
 image: default.jpg
 membership: current

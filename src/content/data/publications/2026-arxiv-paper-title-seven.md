@@ -4,6 +4,7 @@ status: published
 date: 2026-09-01
 title: Paper Title Seven
 slug: 2026-arxiv-paper-title-seven
+summary: 1-line summary of the paper seven.
 cover: publication.jpg
 image: default.jpg
 year: 2026
