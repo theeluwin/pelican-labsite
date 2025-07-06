@@ -21,13 +21,13 @@
   <meta property="og:title" content="{{ (article.title | striptags | escape) }}" />
   <meta property="og:description" content="{{ (article.summary | striptags | escape) if article.summary else (SITEDESCRIPTION | striptags | escape) }}" />
   {% if article.image %}
-    <meta property="twitter:image" content="{{ SITEURL }}/images/{{ article.category }}/{{ article.image }}" />
+    <meta name="twitter:image" content="{{ SITEURL }}/images/{{ article.category }}/{{ article.image }}" />
     <meta property="og:image" content="{{ SITEURL }}/images/{{ article.category }}/{{ article.image }}" />
   {% elif article.cover %}
-    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/{{ article.cover }}" />
+    <meta name="twitter:image" content="{{ SITEURL }}/images/cover/{{ article.cover }}" />
     <meta property="og:image" content="{{ SITEURL }}/images/cover/{{ article.cover }}" />
   {% else %}
-    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+    <meta name="twitter:image" content="{{ SITEURL }}/images/cover/default.jpg" />
     <meta property="og:image" content="{{ SITEURL }}/images/cover/default.jpg" />
   {% endif %}
 {% elif page is defined %}
@@ -39,13 +39,13 @@
   <meta property="og:title" content="{{ (page.title | escape) }}" />
   <meta property="og:description" content="{{ (page.summary | striptags | escape) if page.summary else (SITEDESCRIPTION | striptags | escape) }}" />
   {% if page.image %}
-    <meta property="twitter:image" content="{{ SITEURL }}/images/{{ page.category }}/{{ page.image }}" />
+    <meta name="twitter:image" content="{{ SITEURL }}/images/{{ page.category }}/{{ page.image }}" />
     <meta property="og:image" content="{{ SITEURL }}/images/{{ page.category }}/{{ page.image }}" />
   {% elif page.cover %}
-    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/{{ page.cover }}" />
+    <meta name="twitter:image" content="{{ SITEURL }}/images/cover/{{ page.cover }}" />
     <meta property="og:image" content="{{ SITEURL }}/images/cover/{{ page.cover }}" />
   {% else %}
-    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+    <meta name="twitter:image" content="{{ SITEURL }}/images/cover/default.jpg" />
     <meta property="og:image" content="{{ SITEURL }}/images/cover/default.jpg" />
   {% endif %}
 {% else %}
