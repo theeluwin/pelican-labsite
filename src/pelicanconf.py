@@ -63,3 +63,6 @@ SITEMAP = {
         'indexes': 'monthly',
     }
 }
+
+# github
+GITHUB_RIBBON = True
