@@ -2,6 +2,8 @@
 
 [![Build and Deploy Site](https://github.com/theeluwin/pelican-labsite/actions/workflows/pelican-labsite.yml/badge.svg)](https://github.com/theeluwin/pelican-labsite/actions/workflows/pelican-labsite.yml)
 
+Demo: [theeluwin.github.io/pelican-labsite/](https://theeluwin.github.io/pelican-labsite/)
+
 An academic lab website builder based on [Pelican](https://getpelican.com/).
 
 It manages and updates the site by treating the `*.md` files in `/src/content/data/` (that is, the articles) as a kind of structured data.
@@ -10,7 +12,7 @@ Key features:
 
 * Home (index)
     * recent headlines
-    * cecent publications
+    * recent publications
 * About
 * Members
     * list of current or alumni members
@@ -19,8 +21,10 @@ Key features:
 * Projects
     * **relevant publications for each project**
 * Publications
-    * per year, scope, type
+    * per year, type
     * **automatic link of members for each author**
+
+Inspired by [IDS Lab.](https://ids.snu.ac.kr) and [theeluwin.github.io](https://theeluwin.github.io), which are also my works.
 
 ## Run
 
@@ -110,13 +114,28 @@ The actual appearance of the site is controlled by the theme.
 Currently, two themes are provided:
 
 * `theme-vanilla`: located in `/src/theme-vanilla`, a theme that uses plain HTML only.
-* [TODO] `theme-bootstrap`: located in `/src/theme-bootstrap/`, a sample theme styled with [Bootstrap](https://getbootstrap.com/).
+* `theme-bootstrap`: located in `/src/theme-bootstrap/`, a sample theme styled with [Bootstrap](https://getbootstrap.com/).
 
 ## Engine
 
 The code `/src/plugins/labsite/engine.py` reads and parses files from `/src/content/`, which is used for the template rendering.
 
 It provides template tags and filters that support the key features described above.
+
+## Page
+
+Files under `/src/content/pages/` are used to manage pages.
+
+Cover image inserted in a jumbotron style from `theme-bootstrap` should be specified using the `cover` field and stored in `/src/content/images/covers/`.
+
+```markdown
+title: About
+slug: about
+template: pages/about
+cover: about.jpg
+
+About content.
+```
 
 ## Content
 
@@ -144,6 +163,7 @@ status: published
 date: 2026-03-01
 title: Introduction to Databases
 slug: 2026-spring-introduction-to-databases
+cover: lecture.jpg  # custom field
 year: 2026  # custom field
 semester: Spring  # custom field
 assitants: Master Student2, PhD Student2  # custom field
@@ -157,8 +177,8 @@ Lecture Content 3.  # start with one linebreak, use markdown syntax from here
 
 ### Member
 
-* For `'current'` members, sorted by `position` (`'Professor'`, `'PhD Candidate'`, `'PhD Student'`, `'Master Student'`, `'Intern'`), `-joined_date`.
-* For `'alumni'` members, sorted by `position` (`'PhD'`, `'Master'`), `-graduated_date`.
+* For `'current'` members, sorted by `position` (`'Professor'`, `'PhD Candidate'`, `'PhD Student'`, `'Master Student'`, `'Intern'`), `joined_date`.
+* For `'alumni'` members, sorted by `position` (`'PhD'`, `'Master'`), `graduated_date`.
 * In the detail view, publications with `authors` matching `title` of a member will be displayed (multiple matches allowed, comma-separated).
 * In the detail view, lectures with `assitants` matching `title` of a member will be displayed (multiple matches allowed, comma-separated).
 * For images, save it to `/src/content/images/members/`.
@@ -171,7 +191,7 @@ Lecture Content 3.  # start with one linebreak, use markdown syntax from here
 
 ### Publication
 
-* Sort by `-year`, `venue_scope` (`'Global'`, `'Domestic'`), `venue_type` (`'Conference'`, `'Journal'`), `-date`.
+* Sort by `-year`, `venue_type` (`'Preprint'`, `'Conference'`, `'Journal'`), `-date`.
 * It also automatically generates links for members in `authors` field by matching their `title` (comma-separated).
 * For images, save it to `/src/content/images/publications/`.
 

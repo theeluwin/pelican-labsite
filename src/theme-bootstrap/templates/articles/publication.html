@@ -1,29 +1,68 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% block title_extra %} - [{{ article.venue_short }} {{ article.year }}] {{ article.title }}{% endblock %}
 {% block content %}
-  <article id="article-publication">
-    <div class="container">
-      <h1>{{ article.title }}</h1>
-      <section>
-        <figure>
-          <img src="{{ SITEURL }}/images/publications/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
-          <figcaption>{{ article.title }}</figcaption>
-        </figure>
-      </section>
-      <section>
+  {{ jumbotron_macro(article.title, article.cover) }}
+  <main class="container">
+    <figure class="mx-auto mb-5">
+      <img class="img-fluid" src="{{ SITEURL }}/images/publication/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+    </figure>
+    <section class="mb-5">
+      <h4 class="section-title mb-3">
+        Authors
+      </h4>
+      <div>
+        {{ article.authors | linkify_members }}
+      </div>
+    </section>
+    <section class="mb-5">
+      <h4 class="section-title mb-3">
+        Details
+      </h4>
+      <div>
         <dl>
-          <dt>Date</dt>
-          <dd>{{ article.date | strftime("%Y-%m-%d") }}</dd>
-          <dt>Venue</dt>
-          <dd>{{ article.venue_name }}</dd>
-          <dt>Authors</dt>
-          <dd>{{ article.authors | linkify_members }}</dd>
+          <dt>
+            Published on
+          </dt>
+          <dd>
+            {{ article.date | strftime("%Y-%m-%d") }}
+          </dd>
+          <dt>
+            Published in
+          </dt>
+          <dd>
+            {{ article.venue_name }}
+          </dd>
+          {% if article.link %}
+            <dt>
+              Link
+            </dt>
+            <dd>
+              <a class="link" href="{{ article.link }}" target="new">
+                {{ article.link }}
+              </a>
+            </dd>
+          {% endif %}
+          {% if article.code %}
+            <dt>
+              Code
+            </dt>
+            <dd>
+              <a class="link" href="{{ article.code }}" target="new">
+                {{ article.code }}
+              </a>
+            </dd>
+          {% endif %}
         </dl>
-      </section>
-      <section>
-        <h2>Abstract</h2>
-        <div>{{ article.content }}</div>
-      </section>
-    </div>
-  </article>
+      </div>
+    </section>
+    <section class="mb-5">
+      <h4 class="section-title mb-3">
+        Abstract
+      </h4>
+      <div>
+        {{ article.content }}
+      </div>
+    </section>
+  </main>
 {% endblock %}

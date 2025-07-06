@@ -3,16 +3,16 @@ category: publication
 status: published
 date: 2026-09-01
 title: Paper Title Six
-slug: 2026-agc-paper-title-six
+slug: 2026-arxiv-paper-title-six
+cover: publication.jpg
 image: default.jpg
 year: 2026
 authors: PhD Alumni2, External Member2, Professor Member
-venue_scope: Global
-venue_type: Conference
-venue_name: Awesome Global Conference
-venue_short: AGC
+venue_type: Preprint
+venue_name: arXiv Preprint
+venue_short: arXiv
 projects: project-one, project-two
-link: https://awesomeglobalconference.com/paper-title-six
+link: https://arxiv.org/abs/2609.00000
 code: https://github.com/yourlab/paper-title-six
 
 Abstract of the paper six.

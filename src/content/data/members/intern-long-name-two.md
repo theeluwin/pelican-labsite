@@ -2,14 +2,14 @@ template: articles/member
 category: member
 status: published
 date: 2026-03-01
-title: PhD Student2
-slug: phd-student2
+title: Intern Long Name Two
+slug: intern-long-name-two
 cover: member.jpg
 image: default.jpg
 membership: current
-position: PhD Student
+position: Intern
 joined_date: 2026-03-01
 graduated_date:
-email: phd.student2 [at] yourlab.university.edu
+email: intern.long.name.two [at] yourlab.university.edu
 
-Content for PhD Student2.
+Content for Intern Long Name Two.

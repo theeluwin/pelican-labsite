@@ -1,30 +1,55 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% from "macros/headline-list.html" import headline_list_macro with context %}
 {% from "macros/publication-list.html" import publication_list_macro with context %}
 {% block content %}
-  <main id="index">
-    <div class="container">
-      <section>
-        <h1>{{ SITENAME }}</h1>
-        <p>Introduction of the lab.</p>
-      </section>
-      <section>
-        <h2>Recent Contents</h2>
+  {{ jumbotron_macro(SITENAME, 'default.jpg', 'Introduction of the lab.') }}
+  <main class="container">
+    <section class="mb-5">
+      <p>
+        We are a team of researchers and students working on the cutting-edge of AI and machine learning, lead by <a class="link" href="{{ SITEURL }}/member/professor-member.html">Professor Member</a>.
+      </p>
+      <p>
+        Our research interests include:
+      </p>
+      <ul>
+        <li>Machine Learning</li>
+        <li>XAI</li>
+        <li>Computer Vision</li>
+        <li>Natural Language Processing</li>
+      </ul>
+    </section>
+    <section class="row">
+      <section class="col-12 col-lg-6 mb-5">
+        <h4 class="section-title mb-3">
+          Recent Headlines
+        </h4>
         <section>
-          <h3>Recent Headlines</h3>
-          <section>{{ headline_list_macro(all_headlines[:RECENT_DATA_LIMIT]) }}</section>
-          <div>
-            <a href="{{ SITEURL }}/headlines.html">See all headlines</a>
-          </div>
+          {{ headline_list_macro(all_headlines[:RECENT_DATA_LIMIT]) }}
         </section>
-        <section>
-          <h3>Recent Publications</h3>
-          <section>{{ publication_list_macro(all_publications[:RECENT_DATA_LIMIT]) }}</section>
-          <div>
-            <a href="{{ SITEURL }}/publications.html">See all publications</a>
-          </div>
-        </section>
+        <p>
+          <a class="link link-secondary" href="{{ SITEURL }}/headlines.html">
+            <small>
+              See all headlines
+            </small>
+          </a>
+        </p>
       </section>
-    </div>
+      <section class="col-12 col-lg-6 mb-5">
+        <h4 class="section-title mb-3">
+          Recent Publications
+        </h4>
+        <section>
+          {{ publication_list_macro(all_publications[:RECENT_DATA_LIMIT]) }}
+        </section>
+        <p>
+          <a class="link link-secondary" href="{{ SITEURL }}/publications.html">
+            <small>
+              See all publications
+            </small>
+          </a>
+        </p>
+      </section>
+    </section>
   </main>
 {% endblock %}

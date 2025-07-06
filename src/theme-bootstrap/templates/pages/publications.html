@@ -1,11 +1,10 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% from "macros/publication-sections.html" import publication_sections_macro with context %}
 {% block title_extra %} - Publications{% endblock %}
 {% block content %}
-  <main id="page-publications">
-    <div class="container">
-      <h1>Publications</h1>
-      {{ publication_sections_macro(verbose_publication_data) }}
-    </div>
+  {{ jumbotron_macro(page.title, page.cover) }}
+  <main class="container">
+    {{ publication_sections_macro(verbose_publication_data) }}
   </main>
 {% endblock %}

@@ -4,8 +4,8 @@
   <article id="article-lecture">
     <h1>[{{ article.year }} {{ article.semester }}] {{ article.title }}</h1>
     <section>
-      {% if article.assitants %}
-        <div>Teaching Assistants: {{ article.assitants | linkify_members }}</div>
+      {% if article.assistants %}
+        <div>Teaching Assistants: {{ article.assistants | linkify_members }}</div>
       {% endif %}
       <div>{{ article.content }}</div>
     </section>

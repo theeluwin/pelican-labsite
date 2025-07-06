@@ -1,14 +1,22 @@
 {% from "macros/lecture-list.html" import lecture_list_macro with context %}
 {% macro lecture_sections_macro(verbose_lecture_data) %}
   {% for year, year_data in verbose_lecture_data.items() %}
-    <section>
-      <h2>{{ year }}</h2>
-      <section>
-        {% for semester, lectures in year_data.items() %}
-          <h3>{{ semester }}</h3>
-          <section>{{ lecture_list_macro(lectures) }}</section>
-        {% endfor %}
-      </section>
+    <section class="mb-5">
+      <h2 class="section-title mb-3">
+        {{ year }}
+      </h2>
+      {% for semester, lectures in year_data.items() %}
+        <section class="card card-none mb-3">
+          <div class="card-header">
+            <h5 class="card-title mb-0 pt-1">
+              {{ semester }}
+            </h5>
+          </div>
+          <div class="card-body pb-0">
+            {{ lecture_list_macro(lectures) }}
+          </div>
+        </section>
+      {% endfor %}
     </section>
   {% endfor %}
 {% endmacro %}

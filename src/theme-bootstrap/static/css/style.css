@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 56px;
+    font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+}
+main {
+    padding: 20px 0;
+}
+figure {
+    max-width: 720px;
+}
+figure img {
+    width: 100%;
+}
+
+#footer {
+    margin-top: auto;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.card-none {
+    border: none;
+}
+.card-none .card-header {
+    background-color: #FFFFFF;
+}
+
+.jumbotron {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.jumbotron .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+}
+.jumbotron .container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    display: inline-block;
+    border-bottom: 3px solid #79281C;
+    line-height: 1.5em;
+    color: #79281C;
+}
+
+.link {
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+
+.link-member {
+    vertical-align: top;
+    display: inline-block;
+}
+.link-member img {
+    object-fit: cover;
+    object-position: top;
+}
+.link-member-current {
+    width: 120px;
+    min-height: 120px;
+}
+.link-member-current img {
+    width: 120px;
+    height: 120px;
+}
+.link-member-alumni {
+    width: 60px;
+    min-height: 60px;
+}
+.link-member-alumni img {
+    width: 60px;
+    height: 60px;
+}
+
+.member-image {
+    width: 240px;
+}

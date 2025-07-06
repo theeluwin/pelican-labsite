@@ -3,7 +3,7 @@
     {% for member in members %}
       <li>
         <a href="{{ SITEURL }}/member/{{ member.slug }}.html">
-          <img src="{{ SITEURL }}/images/members/{{ member.image | default('default.jpg') }}" alt="{{ member.title }}" />
+          <img src="{{ SITEURL }}/images/member/{{ member.image | default('default.jpg') }}" alt="{{ member.title }}" />
           <span>{{ member.title }}</span>
         </a>
       </li>

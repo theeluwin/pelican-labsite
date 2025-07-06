@@ -6,7 +6,7 @@
     <h1>{{ article.title }}</h1>
     <section>
       <figure>
-        <img src="{{ SITEURL }}/images/projects/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+        <img src="{{ SITEURL }}/images/project/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
         <figcaption>{{ article.summary }}</figcaption>
       </figure>
     </section>

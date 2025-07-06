@@ -1,21 +1,23 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% block title_extra %} - Projects{% endblock %}
 {% block content %}
-  <main id="page-projects">
-    <div class="container">
-      <h1>Projects</h1>
-      {% for project in all_projects %}
-        <section>
+  {{ jumbotron_macro(page.title, page.cover) }}
+  <main class="container">
+    {% for project in all_projects %}
+      <section class="mb-5">
         <h2>
-          <a href="{{ SITEURL }}/project/{{ project.slug }}.html">{{ project.title }}</a>
+          <a class="link" href="{{ SITEURL }}/project/{{ project.slug }}.html">
+            {{ project.title }}
+          </a>
         </h2>
-        <section>
-          <figure>
-            <img src="{{ SITEURL }}/images/projects/{{ project.image | default('default.jpg') }}" alt="{{ project.title }}" />
-            <figcaption>{{ project.summary }}</figcaption>
-          </figure>
-        </section>
-      {% endfor %}
-    </div>
+        <figure>
+          <img class="img-fluid" src="{{ SITEURL }}/images/project/{{ project.image | default('default.jpg') }}" alt="{{ project.title }}" />
+          <figcaption class="mt-1">
+            {{ project.summary }}
+          </figcaption>
+        </figure>
+      </section>
+    {% endfor %}
   </main>
 {% endblock %}

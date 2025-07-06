@@ -1,9 +1,15 @@
 {% from "macros/member-list.html" import member_list_macro with context %}
 {% macro member_sections_macro(verbose_member_data) %}
   {% for position, members in verbose_member_data.items() %}
-    <section>
-      <h3>{{ position }}</h3>
-      <section>{{ member_list_macro(members) }}</section>
+    <section class="card card-none mb-3">
+      <div class="card-header">
+        <h5 class="card-title mb-0 pt-1">
+          {{ position }}
+        </h5>
+      </div>
+      <div class="card-body pb-0">
+        {{ member_list_macro(members) }}
+      </div>
     </section>
   {% endfor %}
 {% endmacro %}

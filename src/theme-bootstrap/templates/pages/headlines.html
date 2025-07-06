@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% from "macros/jumbotron.html" import jumbotron_macro with context %}
 {% from "macros/headline-list.html" import headline_list_macro with context %}
 {% block title_extra %} - Headlines{% endblock %}
 {% block content %}
-  <main id="page-headlines">
-    <div class="container">
-      <h1>Headlines</h1>
-      <section>{{ headline_list_macro(all_headlines) }}</section>
-    </div>
+  {{ jumbotron_macro(page.title, page.cover) }}
+  <main class="container">
+    <section>
+      {{ headline_list_macro(all_headlines) }}
+    </section>
   </main>
 {% endblock %}
