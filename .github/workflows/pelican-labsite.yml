@@ -32,7 +32,7 @@ jobs:
         run: pip install -r requirements.txt
       - name: Build Pelican site
         working-directory: src/
-        run: pelican content --output ../dist/ --settings pelicanconf.py --extra-settings SITEURL='"${{ steps.pages.outputs.base_url }}"'
+        run: pelican content --output ../dist/ --settings pelicanconf.py --extra-settings SITEURL='"${{ steps.pages.outputs.base_url }}"',GOOGLE_ANALYTICS_ID='"${{ secrets.GOOGLE_ANALYTICS_ID }}"'
       - name: Fix permissions
         run: |
           chmod -c -R +rX dist/ | while read line; do

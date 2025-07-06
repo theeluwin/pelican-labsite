@@ -4,6 +4,7 @@ status: published
 date: 2026-03-01
 title: Intern Longest Name Among All
 slug: intern-longest-name-among-all
+summary: Summary of Intern Longest Name Among All.
 cover: member.jpg
 image: default.jpg
 membership: current

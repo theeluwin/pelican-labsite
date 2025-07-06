@@ -1,3 +1,57 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="{{ AUTHOR }}" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:type" content="website" />
+<meta http-equiv="Content-Language" content="{{ DEFAULT_LANG }}" />
 <link rel="shortcut icon" href="{{ SITEURL }}/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="{{ SITEURL }}/favicon.ico" />
+{% if article is defined %}
+  <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}" />
+  <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
+  <meta name="description" content="{{ article.summary | striptags | escape if article.summary else SITEDESCRIPTION | striptags | escape }}" />
+  <meta name="twitter:title" content="{{ article.title | escape }}" />
+  <meta name="twitter:description" content="{{ article.summary | striptags | escape if article.summary else SITEDESCRIPTION | striptags | escape }}" />
+  <meta property="og:title" content="{{ article.title | escape }}" />
+  <meta property="og:description" content="{{ article.summary | striptags | escape if article.summary else SITEDESCRIPTION | striptags | escape }}" />
+  {% if article.image %}
+    <meta property="twitter:image" content="{{ SITEURL }}/images/{{ article.category }}/{{ article.image }}" />
+    <meta property="og:image" content="{{ SITEURL }}/images/{{ article.category }}/{{ article.image }}" />
+  {% elif article.cover %}
+    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/{{ article.cover }}" />
+    <meta property="og:image" content="{{ SITEURL }}/images/cover/{{ article.cover }}" />
+  {% else %}
+    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+    <meta property="og:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+  {% endif %}
+{% elif page is defined %}
+  <link rel="canonical" href="{{ SITEURL }}/{{ page.url }}" />
+  <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}" />
+  <meta name="description" content="{{ page.summary | striptags | escape if page.summary else SITEDESCRIPTION | striptags | escape }}" />
+  <meta name="twitter:title" content="{{ page.title | escape }}" />
+  <meta name="twitter:description" content="{{ page.summary | striptags | escape if page.summary else SITEDESCRIPTION | striptags | escape }}" />
+  <meta property="og:title" content="{{ page.title | escape }}" />
+  <meta property="og:description" content="{{ page.summary | striptags | escape if page.summary else SITEDESCRIPTION | striptags | escape }}" />
+  {% if page.image %}
+    <meta property="twitter:image" content="{{ SITEURL }}/images/{{ page.category }}/{{ page.image }}" />
+    <meta property="og:image" content="{{ SITEURL }}/images/{{ page.category }}/{{ page.image }}" />
+  {% elif page.cover %}
+    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/{{ page.cover }}" />
+    <meta property="og:image" content="{{ SITEURL }}/images/cover/{{ page.cover }}" />
+  {% else %}
+    <meta property="twitter:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+    <meta property="og:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+  {% endif %}
+{% else %}
+  <link rel="canonical" href="{{ SITEURL }}/" />
+  <meta property="og:url" content="{{ SITEURL }}/" />
+  <meta name="description" content="{{ SITEDESCRIPTION | striptags | escape }}" />
+  <meta name="twitter:title" content="{{ SITENAME }}" />
+  <meta name="twitter:description" content="{{ SITEDESCRIPTION | striptags | escape }}" />
+  <meta property="og:title" content="{{ SITENAME }}" />
+  <meta property="og:description" content="{{ SITEDESCRIPTION | striptags | escape }}" />
+  <meta property="twitter:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+  <meta property="og:image" content="{{ SITEURL }}/images/cover/default.jpg" />
+{% endif %}

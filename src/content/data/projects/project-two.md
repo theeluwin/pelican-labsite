@@ -4,8 +4,8 @@ status: published
 date: 2026-03-01
 title: Project Two
 slug: project-two
+summary: Project Two summary.
 cover: project.jpg
 image: default.jpg
-summary: Project Two summary.
 
 Project Two Content.

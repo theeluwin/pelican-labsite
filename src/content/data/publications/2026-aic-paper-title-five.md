@@ -4,6 +4,7 @@ status: published
 date: 2026-03-01
 title: Paper Title Five
 slug: 2026-aic-paper-title-five
+summary: 1-line summary of the paper five.
 cover: publication.jpg
 image: default.jpg
 year: 2026

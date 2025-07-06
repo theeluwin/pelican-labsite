@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: Professor Member
 slug: professor-member
+summary: Summary of Professor Member.
 cover: member.jpg
 image: default.jpg
 membership: current

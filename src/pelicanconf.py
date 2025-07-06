@@ -1,11 +1,13 @@
 # site
-AUTHOR = 'Your Name'
-SITENAME = "Your Lab"
-SITEURL = 'http://yourlab.university.edu'
+AUTHOR = "theeluwin"
+SITENAME = "Pelican Labsite"
+SITEURL = "http://theeluwin.github.io/pelican-labsite"
+SITEDESCRIPTION = "For building academic lab websites using Pelican."
 THEME = 'theme-bootstrap/'
 TIMEZONE = 'UTC'
 DEFAULT_LANG = 'en'
 RECENT_DATA_LIMIT = 5
+GOOGLE_ANALYTICS_ID = ''
 
 # urls
 RELATIVE_URLS = False
@@ -34,12 +36,10 @@ STATIC_PATHS = [
     'images/',
     'extra/favicon.ico',
     'extra/robots.txt',
-    'extra/CNAME',
 ]
 EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/robots.txt': {'path': 'robots.txt'},
-    'extra/CNAME': {'path': 'CNAME'},
 }
 
 # plugins

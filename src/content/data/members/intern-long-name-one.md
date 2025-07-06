@@ -4,6 +4,7 @@ status: published
 date: 2026-03-01
 title: Intern Long Name One
 slug: intern-long-name-one
+summary: Summary of Intern Long Name One.
 cover: member.jpg
 image: default.jpg
 membership: current

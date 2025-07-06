@@ -1,15 +1,27 @@
 title: About
 slug: about
 template: pages/about
+summary: About page.
 cover: about.jpg
 
-Welcome to our lab. We are a team of researchers and students working on the cutting-edge of AI and machine learning.
+An academic lab website builder based on [Pelican](https://getpelican.com/).
 
-Our research interests include:
+It manages and updates the site by treating the `*.md` files in `/src/content/data/` (that is, the articles) as a kind of structured data.
 
-* Machine Learning
-* XAI
-* Computer Vision
-* Natural Language Processing
+Key features:
 
-Contact: contact [at] yourlab.university.edu
+* Home (index)
+    * recent headlines
+    * recent publications
+* About
+* Members
+    * list of current or alumni members
+    * **relevant publications for each member**
+    * **relevant lectures for each member**
+* Projects
+    * **relevant publications for each project**
+* Publications
+    * per year, type
+    * **automatic link of members for each author**
+
+Inspired by [IDS Lab.](https://ids.snu.ac.kr){:target="new"} and [theeluwin.github.io](https://theeluwin.github.io){:target="new"}, which are also my works.

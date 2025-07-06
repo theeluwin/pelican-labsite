@@ -4,6 +4,7 @@ status: published
 date: 2025-09-01
 title: Paper Title Four
 slug: 2025-aij-paper-title-four
+summary: 1-line summary of the paper four.
 cover: publication.jpg
 image: default.jpg
 year: 2025

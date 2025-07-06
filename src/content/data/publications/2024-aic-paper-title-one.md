@@ -4,6 +4,7 @@ status: published
 date: 2024-09-01
 title: Paper Title One
 slug: 2024-aic-paper-title-one
+summary: 1-line summary of the paper one.
 cover: publication.jpg
 image: default.jpg
 year: 2024

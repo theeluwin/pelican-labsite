@@ -4,6 +4,7 @@ status: published
 date: 2026-03-01
 title: PhD Alumni2
 slug: phd-alumni2
+summary: Summary of PhD Alumni2.
 cover: member.jpg
 image: default.jpg
 membership: alumni
