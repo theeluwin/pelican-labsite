@@ -20,4 +20,4 @@ email: phd.candidate2 [at] yourlab.university.edu
 
 ##### External Links
 
-* [GitHub](https://github.com/phd-candidate2){:target="_blank"}
+* [GitHub](https://github.com/phd-candidate2){:target="_blank" class="link"}
