@@ -33,24 +33,25 @@
           <dd>
             {{ article.venue_name }}
           </dd>
-          {% if article.link %}
+          {% if article.link or article.code %}
             <dt>
-              Link
+              Links
             </dt>
             <dd>
-              <a class="link" href="{{ article.link }}" target="new">
-                {{ article.link }}
-              </a>
-            </dd>
-          {% endif %}
-          {% if article.code %}
-            <dt>
-              Code
-            </dt>
-            <dd>
-              <a class="link" href="{{ article.code }}" target="new">
-                {{ article.code }}
-              </a>
+              {% if article.link %}
+                [
+                  <a class="link" href="{{ article.link }}" target="_blank">
+                    paper
+                  </a>
+                ]
+              {% endif %}
+              {% if article.code %}
+                [
+                  <a class="link" href="{{ article.code }}" target="_blank">
+                    code
+                  </a>
+                ]
+              {% endif %}
             </dd>
           {% endif %}
         </dl>
