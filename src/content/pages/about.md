@@ -23,5 +23,8 @@ Key features:
 * Publications
     * per year, type
     * **automatic link of members for each author**
+* Lectures
+    * per year, semester
+    * **automatic link of members for each teaching assistants**
 
-Inspired by [IDS Lab.](https://ids.snu.ac.kr){:target="new"} and [theeluwin.github.io](https://theeluwin.github.io){:target="new"}, which are also my works.
+Inspired by [IDS Lab.](https://ids.snu.ac.kr){:target="_blank" class="link"} and [theeluwin.github.io](https://theeluwin.github.io){:target="_blank" class="link"}, which are also my works.

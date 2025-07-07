@@ -8,10 +8,10 @@
         <div>{{ publication.authors | linkify_members }}</div>
         <div>
           {% if publication.link %}
-            <a href="{{ publication.link }}" target="new">Link</a>
+            <a href="{{ publication.link }}" target="_blank">Paper</a>
           {% endif %}
           {% if publication.code %}
-            <a href="{{ publication.code }}" target="new">Code</a>
+            <a href="{{ publication.code }}" target="_blank">Code</a>
           {% endif %}
         </div>
       </li>

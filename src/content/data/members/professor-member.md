@@ -24,4 +24,4 @@ email: professor.member [at] yourlab.university.edu
 
 ##### External Links
 
-* [GitHub](https://github.com/professor-member){:target="new"}
+* [GitHub](https://github.com/professor-member){:target="_blank" class="link"}

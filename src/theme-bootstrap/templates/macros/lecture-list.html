@@ -1,19 +1,23 @@
 {% macro lecture_list_macro(lectures) %}
   {% for lecture in lectures %}
     <div class="mb-3">
-      <span class="badge text-bg-dark mb-1 me-1">
-        {{ lecture.year }} {{ lecture.semester }}
-      </span>
-      <br />
-      <a class="link" href="{{ SITEURL }}/lecture/{{ lecture.slug }}.html">
-        <b>
-          {{ lecture.title }}
-        </b>
-      </a>
-      <br />
-      <small>
-        {{ lecture.assistants | linkify_members }}
-      </small>
+      <div>
+        <span class="badge text-bg-dark mb-1 me-1">
+          {{ lecture.year }} {{ lecture.semester }}
+        </span>
+      </div>
+      <div>
+        <a class="link" href="{{ SITEURL }}/lecture/{{ lecture.slug }}.html">
+          <b>
+            {{ lecture.title }}
+          </b>
+        </a>
+      </div>
+      <div>
+        <small>
+          {{ lecture.assistants | linkify_members }}
+        </small>
+      </div>
     </div>
   {% endfor %}
 {% endmacro %}
