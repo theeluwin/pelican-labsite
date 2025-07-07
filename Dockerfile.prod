@@ -1,22 +1,22 @@
 # build stage
 FROM python:3.12-slim AS build-stage
 LABEL maintainer="Jinseok Seol <theeluwin@gmail.com>"
-RUN mkdir -p /src
-RUN mkdir -p /dist
+RUN mkdir --parents /src
+RUN mkdir --parents /dist
 WORKDIR /src
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --requirement requirements.txt
 COPY src/ .
 RUN pelican content --output /dist --settings pelicanconf.py
 
 # runtime stage
 FROM nginx:1.28-alpine-slim AS runtime-stage
 LABEL maintainer="Jinseok Seol <theeluwin@gmail.com>"
-RUN mkdir -p /dist
+RUN mkdir --parents /dist
 COPY --from=build-stage /dist /dist
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-RUN mkdir -p /shared
-RUN mkdir -p /shared/logfiles
+RUN mkdir --parents /shared
+RUN mkdir --parents /shared/logfiles
 RUN nginx -t
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
