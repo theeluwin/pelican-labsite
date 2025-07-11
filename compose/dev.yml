@@ -1,0 +1,10 @@
+services:
+  service:
+    image: pelican-labsite-dev
+    build:
+      context: ${PWD}
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8000:8000
+    volumes:
+      - ${PWD}/src/:/src/
