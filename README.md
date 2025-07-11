@@ -29,65 +29,6 @@ Key features:
 
 Inspired by [IDS Lab.](https://ids.snu.ac.kr) and [theeluwin.github.io](https://theeluwin.github.io), which are also my works.
 
-## Run
-
-### Development
-
-Uses `/Dockerfile.dev` with `/src` volume bound.
-
-But since most of the code runs through the engine (below), hot-reload may not work properly.
-
-To run the development environment,
-
-```bash
-docker build -f ./Dockerfile.dev -t pelican-labsite-dev .
-docker run \
-    -it \
-    --rm \
-    --init \
-    --publish 8000:8000 \
-    --volume ./src:/src \
-    --name pelican-labsite-dev-container \
-    pelican-labsite-dev
-```
-
-or simply,
-
-```bash
-./run_dev.sh
-```
-
-then, open your browser and go to `http://localhost:8000`.
-
-### Production
-
-In the production, the site is built in a python environment, and the resulting output (`/dist` inside the docker image) is served by nginx. Refer to `Dockerfile.prod` for details.
-
-To run the production environment,
-
-```bash
-docker build -f ./Dockerfile.prod -t pelican-labsite .
-docker stop pelican-labsite-container 2>/dev/null || true
-docker rm pelican-labsite-container 2>/dev/null || true
-docker run \
-    -d \
-    --init \
-    --publish 80:80 \
-    --volume ./shared:/shared \
-    --name pelican-labsite-container \
-    pelican-labsite
-```
-
-or simply,
-
-```bash
-./run_prod.sh
-```
-
-then, open your browser and go to `http://localhost`.
-
-You can see the nginx logs in `/shared/logfiles/`.
-
 ## Settings
 
 See `/src/pelicanconf.py` for configuration details.
@@ -103,6 +44,48 @@ THEME = 'theme-bootstrap/'
 TIMEZONE = 'UTC'
 DEFAULT_LANG = 'en'
 RECENT_DATA_LIMIT = 5
+```
+
+## Run
+
+### Development
+
+Uses `/Dockerfile.dev` with `/src` volume bound.
+
+But since most of the code runs through the engine (below), hot-reload may not work properly.
+
+To run the development environment,
+
+```bash
+docker compose -f compose/dev.yml up --build
+```
+
+then, open your browser and go to `http://localhost:8000`.
+
+To kill the container:
+
+```bash
+docker compose -f compose/dev.yml down
+```
+
+### Production
+
+In the production, the site is built in a python environment, and the resulting output (`/dist` inside the docker image) is served by nginx. Refer to `Dockerfile.prod` for details.
+
+To run the production environment,
+
+```bash
+docker compose -f compose/prod.yml up --build --detach
+```
+
+then, open your browser and go to `http://localhost` (all links uses `SITEURL` prefix, so you might want to edit the settings first).
+
+You can see the nginx logs in `/shared/logfiles/`.
+
+To kill the container:
+
+```bash
+docker compose -f compose/prod.yml down
 ```
 
 ## Theme
@@ -209,6 +192,6 @@ See `/.github/workflows/pelican-labsite.yml` for more details.
 
 For the custom domains, you must create file `/src/content/extra/CNAME` with content that specifies your domain:
 
-```
+```text
 yourlab.university.edu
 ```

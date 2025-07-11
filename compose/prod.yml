@@ -1,0 +1,10 @@
+services:
+  web:
+    image: pelican-labsite-prod
+    build:
+      context: ${PWD}
+      dockerfile: Dockerfile.prod
+    ports:
+      - 80:80
+    volumes:
+      - ${PWD}/shared/logfiles/:/shared/logfiles/

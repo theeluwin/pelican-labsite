@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pelican content \
     --output /dist \
     --settings pelicanconf.py \
