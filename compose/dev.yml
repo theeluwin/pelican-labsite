@@ -1,5 +1,5 @@
 services:
-  service:
+  web:
     image: pelican-labsite-dev
     build:
       context: ${PWD}
