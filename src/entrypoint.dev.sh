@@ -1,6 +1,7 @@
 #!/bin/bash
 
-pelican content \
+pelican \
+    content \
     --output /dist \
     --settings pelicanconf.py \
     --extra-settings RELATIVE_URLS=true \
