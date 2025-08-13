@@ -110,10 +110,12 @@ Files under `/src/content/pages/` are used to manage pages.
 Cover image inserted in a jumbotron style from `theme-bootstrap` should be specified using the `cover` field and stored in `/src/content/images/covers/`.
 
 ```markdown
+---
 title: About
 slug: about
 template: pages/about
 cover: about.jpg
+---
 
 About content.
 ```
@@ -127,6 +129,7 @@ Make sure that the filename of each `*.md` file in `/src/content/data/` matches 
 The metadata fields for all articles should begin with the following (see [docs](https://docs.getpelican.com/en/latest/content.html) for more detail):
 
 ```markdown
+---
 template: articles/lecture  # `.html` extension is not required
 category: lecture  # match the name of the directory
 status: published  # fixed value
@@ -134,11 +137,13 @@ date: 2026-03-01  # will be used appropriately
 title: Introduction to Databases  # will be used appropriately
 slug: 2026-spring-introduction-to-databases  # match the name of the file
 summary: Summary of Databases.
+---
 ```
 
 Then, the custom field follows:
 
 ```markdown
+---
 template: articles/lecture
 category: lecture
 status: published
@@ -150,6 +155,7 @@ cover: lecture.jpg  # custom field
 year: 2026  # custom field
 semester: Spring  # custom field
 assistants: Master Student2, PhD Student2  # custom field
+---
 
 Lecture Content 3.  # start with one linebreak, use markdown syntax from here
 ```
