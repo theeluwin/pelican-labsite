@@ -1,3 +1,4 @@
+---
 template: articles/member
 category: member
 status: published
@@ -12,6 +13,7 @@ position: Professor
 joined_date: 2025-09-01
 graduated_date:
 email: professor.member [at] yourlab.university.edu
+---
 
 ##### Educations & Careers
 

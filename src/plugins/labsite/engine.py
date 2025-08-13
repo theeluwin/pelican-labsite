@@ -1,5 +1,6 @@
+import frontmatter
+
 from pathlib import Path
-from datetime import datetime
 from operator import itemgetter
 from collections import OrderedDict
 
@@ -21,34 +22,12 @@ def parse_list(values):
 
 
 def parse_metadata(fpath):
-
-    # prepare
-    metadata = {}
-
-    # read
-    content = fpath.read_text(encoding='utf-8')
-
-    # parse
-    for line in content.split('\n'):
-        line = line.strip()
-
-        # stop at empty line
-        if not line:
-            break
-
-        # parse key-value pair
-        if ':' in line:
-            key, value = line.split(':', 1)
-            key = key.strip().lower()
-            value = value.strip()
-
-            # parse date
-            if key == 'date':
-                value = datetime.strptime(value, '%Y-%m-%d')
-
-            # memorize
-            metadata[key] = value
-
+    post = frontmatter.load(fpath)
+    metadata = post.metadata
+    for key, value in metadata.items():
+        if key in ('authors', 'projects', 'assistants'):
+            value = parse_list(value)
+        metadata[key] = value
     return metadata
 
 
@@ -104,10 +83,7 @@ class DB(Singleton):
             member = parse_metadata(fpath)
 
             # parse date
-            member['joined_date'] = datetime.strptime(member['joined_date'], '%Y-%m-%d')
-            try:
-                member['graduated_date'] = datetime.strptime(member['graduated_date'], '%Y-%m-%d')
-            except (KeyError, ValueError):
+            if 'graduated_date' not in member:
                 member['graduated_date'] = None
 
             # for cache
@@ -206,21 +182,14 @@ class DB(Singleton):
             yearset.add(year)
             publication['year'] = year
 
-            # parse authors
-            authors = parse_list(publication['authors'])
-            publication['authors'] = authors
-
             # memorize member publications
-            for title in authors:
+            for title in publication['authors']:
                 if title not in self.title2member:
                     continue
                 member = self.title2member[title]
                 if 'publications' not in member:
                     member['publications'] = []
                 member['publications'].append(publication)
-
-            # parse projects
-            publication['projects'] = parse_list(publication['projects'])
 
             # memorize project publications
             for slug in publication['projects']:
@@ -296,12 +265,8 @@ class DB(Singleton):
             yearset.add(year)
             lecture['year'] = year
 
-            # parse assistants
-            assistants = parse_list(lecture['assistants'])
-            lecture['assistants'] = assistants
-
             # memorize member lectures
-            for title in assistants:
+            for title in lecture['assistants']:
                 if title not in self.title2member:
                     continue
                 member = self.title2member[title]

@@ -1,3 +1,4 @@
+---
 template: articles/lecture
 category: lecture
 status: published
@@ -9,5 +10,6 @@ cover: lecture.jpg
 year: 2025
 semester: Fall
 assistants: PhD Candidate1, PhD Candidate2
+---
 
 Lecture Content 1.

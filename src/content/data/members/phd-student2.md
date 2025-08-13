@@ -1,3 +1,4 @@
+---
 template: articles/member
 category: member
 status: published
@@ -12,5 +13,6 @@ position: PhD Student
 joined_date: 2026-03-01
 graduated_date:
 email: phd.student2 [at] yourlab.university.edu
+---
 
 Content for PhD Student2.

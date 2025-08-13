@@ -1,3 +1,4 @@
+---
 template: articles/publication
 category: publication
 status: published
@@ -15,5 +16,6 @@ venue_short: AIJ
 projects: project-two
 link: https://awesomeinternationaljournal.com/paper-title-four
 code: https://github.com/yourlab/paper-title-four
+---
 
 Abstract of the paper four.

@@ -1,3 +1,4 @@
+---
 template: articles/project
 category: project
 status: published
@@ -7,5 +8,6 @@ slug: project-two
 summary: Project Two summary.
 cover: project.jpg
 image: default.jpg
+---
 
 Project Two Content.

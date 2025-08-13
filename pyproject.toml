@@ -1,0 +1,11 @@
+[project]
+name = "pelican-labsite"
+version = "0.1.0"
+description = "An academic lab website builder based on Pelican."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pelican-sitemap>=1.2.1",
+    "pelican[markdown]>=4.11.0",
+    "python-frontmatter>=1.1.0",
+]

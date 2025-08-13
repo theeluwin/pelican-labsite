@@ -1,3 +1,4 @@
+---
 template: articles/publication
 category: publication
 status: published
@@ -15,5 +16,6 @@ venue_short: ADC
 projects: project-two
 link: https://awesomedomesticconference.com/paper-title-three
 code: https://github.com/yourlab/paper-title-three
+---
 
 Abstract of the paper three.

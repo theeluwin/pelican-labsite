@@ -1,3 +1,4 @@
+---
 template: articles/publication
 category: publication
 status: published
@@ -15,5 +16,6 @@ venue_short: AGC
 projects: project-one, project-two
 link: https://awesomeinternationalconference.com/paper-title-five
 code: https://github.com/yourlab/paper-title-five
+---
 
 Abstract of the paper five.

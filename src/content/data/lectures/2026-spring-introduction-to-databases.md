@@ -1,3 +1,4 @@
+---
 template: articles/lecture
 category: lecture
 status: published
@@ -9,5 +10,6 @@ cover: lecture.jpg
 year: 2026
 semester: Spring
 assistants: Master Student2, PhD Student2
+---
 
 Lecture Content 3.
