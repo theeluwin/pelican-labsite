@@ -1,3 +1,4 @@
+---
 template: articles/publication
 category: publication
 status: published
@@ -15,5 +16,6 @@ venue_short: AIC
 projects: project-one
 link: https://awesomeinternationalconference.com/paper-title-one
 code: https://github.com/yourlab/paper-title-one
+---
 
 Abstract of the paper one.

@@ -1,8 +1,10 @@
+---
 title: About
 slug: about
 template: pages/about
 summary: About page.
 cover: about.jpg
+---
 
 An academic lab website builder based on [Pelican](https://getpelican.com/).
 

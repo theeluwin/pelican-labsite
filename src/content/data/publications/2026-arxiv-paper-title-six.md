@@ -1,3 +1,4 @@
+---
 template: articles/publication
 category: publication
 status: published
@@ -15,5 +16,6 @@ venue_short: arXiv
 projects: project-one, project-two
 link: https://arxiv.org/abs/2609.00000
 code: https://github.com/yourlab/paper-title-six
+---
 
 Abstract of the paper six.

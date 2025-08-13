@@ -1,3 +1,4 @@
+---
 template: articles/member
 category: member
 status: published
@@ -12,5 +13,6 @@ position: Intern
 joined_date: 2026-03-01
 graduated_date:
 email: intern.longer.name.three [at] yourlab.university.edu
+---
 
 Content for Intern Longer Name Three.

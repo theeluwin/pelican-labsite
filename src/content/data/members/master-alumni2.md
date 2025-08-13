@@ -1,3 +1,4 @@
+---
 template: articles/member
 category: member
 status: published
@@ -12,5 +13,6 @@ position: Master
 joined_date: 2026-03-01
 graduated_date: 2026-09-01
 email: master.alumni2 [at] yourlab.university.edu
+---
 
 Content for Master Alumni2.
