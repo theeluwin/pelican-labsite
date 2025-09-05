@@ -18,6 +18,10 @@ def parse_list(values):
     elif isinstance(values, list):
         values = [str(value).strip() for value in values]
 
+    # empty list
+    else:
+        values = []
+
     return values
 
 
