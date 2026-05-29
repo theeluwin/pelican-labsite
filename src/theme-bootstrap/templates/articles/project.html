@@ -6,7 +6,7 @@
   {{ jumbotron_macro(article.title, article.cover) }}
   <main class="container">
     <figure class="mx-auto mb-5">
-      <img class="img-fluid" src="{{ SITEURL }}/images/project/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+      <img class="img-fluid" src="{{ SITEURL }}/images/project/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" loading="lazy" />
       <figcaption class="mt-1 text-center">
         {{ article.summary }}
       </figcaption>
