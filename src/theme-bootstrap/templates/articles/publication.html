@@ -5,7 +5,7 @@
   {{ jumbotron_macro(article.title, article.cover) }}
   <main class="container">
     <figure class="mx-auto mb-5">
-      <img class="img-fluid" src="{{ SITEURL }}/images/publication/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" />
+      <img class="img-fluid" src="{{ SITEURL }}/images/publication/{{ article.image | default('default.jpg') }}" alt="{{ article.title }}" loading="lazy" />
     </figure>
     <section class="mb-5">
       <h4 class="section-title mb-3">

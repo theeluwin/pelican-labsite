@@ -12,7 +12,7 @@
           </a>
         </h2>
         <figure>
-          <img class="img-fluid" src="{{ SITEURL }}/images/project/{{ project.image | default('default.jpg') }}" alt="{{ project.title }}" />
+          <img class="img-fluid" src="{{ SITEURL }}/images/project/{{ project.image | default('default.jpg') }}" alt="{{ project.title }}" loading="lazy" />
           <figcaption class="mt-1">
             {{ project.summary }}
           </figcaption>
